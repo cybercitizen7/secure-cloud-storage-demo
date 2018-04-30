@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <ng-container *ngFor="let bucket of ( bucketState | async ).buckets">
+      <h1
+        *ngIf="bucket.id === bucketId" >
+        {{ bucket.name }}</h1>
+    </ng-container>
+</div>
+<hr>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a routerLink="/{{bucketId}}/files" class="navbar-brand">Files</a>
+      <a routerLink="/{{bucketId}}/details" class="navbar-brand">Details</a>
+    </div>
+</nav>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="align-text-bottom">
+        <small>All Files( {{ ( fileObjectState | async ).objects.length }})</small>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="text-right">
+        <button class="btn btn-primary pull-right" (click)="onUploadObject()" *ngIf="!createNewBucket">Upload Object</button>
+        <button class="btn btn-primary pull-right" (click)="onDeleteObject()" *ngIf="!createNewBucket">Delete Object</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <app-bucket-files-list></app-bucket-files-list>
+</div>
+

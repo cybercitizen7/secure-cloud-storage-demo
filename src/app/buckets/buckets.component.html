@@ -1,0 +1,15 @@
+<div class="col-md-12"  >
+  <app-bucket-new *ngIf="showForm"></app-bucket-new>
+  <div class="text-right">
+    <button class="btn btn-primary pull-right" (click)="onNewBucket()" *ngIf="!showForm">Create new Bucket</button>
+  </div>
+  <div class="text-left">
+    <small>All Buckets({{ (bucketState | async ).buckets.length }})</small>
+  </div>
+</div>
+<hr>
+<div class="col-md-12">
+  <app-bucket-list></app-bucket-list>
+</div>
+
+

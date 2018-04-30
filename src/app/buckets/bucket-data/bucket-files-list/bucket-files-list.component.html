@@ -1,0 +1,21 @@
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last modified</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fileObjectEl of (fileObjectState | async).objects; let i = index" (click)="onSelectRow(i)" [class.active]="i == selectedRow">
+      <td>{{fileObjectEl.name}}</td>
+      <td>{{fileObjectEl.modified}}</td>
+      <td>{{fileObjectEl.size }}</td>
+      <!--<app-object-item-->
+        <!--[fileObject]="fileObjectEl"-->
+        <!--[fileObjectIndex]="i"></app-object-item>-->
+    </tr>
+    </tbody>
+  </table>
+
+
