@@ -64,8 +64,17 @@ export class BucketDataComponent implements OnInit {
     this.bucketState = this.store.select('bucket');
   }
 
-  onUploadObject() {
-
+  startUpload( event: FileList) {
+    // Get the File
+    const file = event.item(0);
+    // Create our FileObject according to our Model
+    const fileObject = new FileObject(
+      file.name,
+      file.lastModifiedDate,
+      file.size
+    );
+    // Dispatch POST request on Servers with the newly created FileObject
+    this.store.dispatch(new FileObjectActions.UploadObject(fileObject, this.bucketId));
   }
 
   onDeleteObject() {

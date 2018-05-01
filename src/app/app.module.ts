@@ -12,11 +12,12 @@ import {EffectsModule} from '@ngrx/effects';
 import {BucketEffects} from './buckets/store/bucket.effects';
 import {AuthInterceptor} from './shared/auth.interceptor';
 import {FileObjectEffects} from './buckets/bucket-data/store/file-object.effects';
+import {FormatFileSizePipe} from './shared/file-size.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

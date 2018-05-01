@@ -10,8 +10,8 @@
     <tbody>
     <tr *ngFor="let fileObjectEl of (fileObjectState | async).objects; let i = index" (click)="onSelectRow(i)" [class.active]="i == selectedRow">
       <td>{{fileObjectEl.name}}</td>
-      <td>{{fileObjectEl.modified}}</td>
-      <td>{{fileObjectEl.size }} KB</td>
+      <td>{{fileObjectEl.modified | date: 'dd/MM/yyyy'}}</td>
+      <td>{{fileObjectEl.size | formatFileSize }}</td>
     </tr>
     </tbody>
   </table>

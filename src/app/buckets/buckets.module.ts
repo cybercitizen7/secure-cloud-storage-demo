@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {AppRoutingModule} from '../app-routing.module';
 import { BucketDetailsComponent } from './bucket-data/bucket-details/bucket-details.component';
+import {FormatFileSizePipe} from '../shared/file-size.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BucketDetailsComponent } from './bucket-data/bucket-details/bucket-deta
     BucketFilesListComponent,
     BucketDataComponent,
     BucketDetailsComponent,
+    FormatFileSizePipe
   ],
   imports: [
     FormsModule,

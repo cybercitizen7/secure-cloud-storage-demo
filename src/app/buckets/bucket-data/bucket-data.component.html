@@ -32,7 +32,8 @@
     <div class="col-md-2 offset-lg-6">
       <div class="row">
         <div style="padding: 5px">
-          <button *ngIf="!showDetailsData" class="btn btn-outline-info pull-right" (click)="onUploadObject()" >Upload Object</button>
+          <label *ngIf="!showDetailsData" class="btn btn-outline-info pull-right"  >
+            <input type="file" style="display: none;" (change)="startUpload($event.target.files)">Upload Object</label>
         </div>
         <div style="padding: 5px">
           <button *ngIf="!showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteObject()" >Delete Object</button>
