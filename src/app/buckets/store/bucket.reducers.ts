@@ -51,6 +51,19 @@ export function bucketReducer(state = initialState, action: BucketActions.Bucket
         buckets: updatedBuckets,
         newBucketAdded: true
       };
+
+    case BucketActions.BUCKET_DELETED:
+      console.log('On bucket deleted action');
+      const bucketsAfterDeleting = [...state.buckets];
+      const index = bucketsAfterDeleting.findIndex(
+        bucket => bucket.id === (action.payload)
+      );
+      bucketsAfterDeleting.splice(index, 1);
+      return {
+        ...state,
+        buckets: bucketsAfterDeleting,
+        newBucketAdded: false
+      };
     default:
       return state;
   }

@@ -6,9 +6,12 @@ import {BucketDetailsComponent} from './buckets/bucket-data/bucket-details/bucke
 
 const appRoutes: Routes = [
   { path: '', component: BucketsComponent },
-  { path: ':id', component: BucketDataComponent },
-  { path: ':id/files', component: BucketDataComponent },
-  { path: ':id/details', component: BucketDetailsComponent },
+  { path: ':id', component: BucketDataComponent,
+    children: [
+      { path: '', redirectTo: 'files', pathMatch: 'full'},
+      { path: 'files', component: BucketDataComponent },
+      { path: 'details', component: BucketDataComponent }
+    ]},
 ];
 
 @NgModule({

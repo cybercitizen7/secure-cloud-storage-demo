@@ -7,6 +7,7 @@ import 'rxjs/add/operator/withLatestFrom';
 
 import * as BucketActions from './bucket.actions';
 import {Bucket} from '../bucket.model';
+import * as FileObjectActions from '../bucket-data/store/file-object.actions';
 
 @Injectable()
 export class BucketEffects {
@@ -45,6 +46,22 @@ export class BucketEffects {
     //   console.log('Sending POST request on Server');
     //   return this.httpClient.post('https://challenge.3fs.si/storage/buckets', action.payload);
     // });
+
+  @Effect()
+  bucketDelete = this.actions$
+    .ofType(BucketActions.DELETE_BUCKET)
+    .map(
+      (action: BucketActions.DeleteBucket) => {
+        return {
+          type: BucketActions.BUCKET_DELETED,
+          payload: action.payload
+        };
+      }
+    );
+  // .switchMap((action: BucketActions.DeleteBucket) => {
+  //   console.log('Sending DELETE request on Server for: ' + action.payload);
+  //   return this.httpClient.delete('https://challenge.3fs.si/storage/buckets/' + action.payload );
+  // })
 
 
 

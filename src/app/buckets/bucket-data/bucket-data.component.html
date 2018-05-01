@@ -8,25 +8,38 @@
 <hr>
 <nav class="navbar navbar-default">
     <div class="navbar-header">
-      <a routerLink="/{{bucketId}}/files" class="navbar-brand">Files</a>
-      <a routerLink="/{{bucketId}}/details" class="navbar-brand">Details</a>
+      <a routerLink="/{{bucketId}}/files"
+         routerLinkActive="active"
+         (click)="onNavigationSelected('files')"
+         class="navbar-brand"
+      >Files</a>
+      <a
+        routerLink="/{{bucketId}}/details"
+        routerLinkActive="active"
+        (click)="onNavigationSelected('details')"
+        class="navbar-brand"
+      >Details</a>
     </div>
 </nav>
 <div class="col-md-12">
   <div class="row">
     <div class="col-md-6">
-      <div class="align-text-bottom">
+      <div *ngIf="!showDetailsData"  class="align-text-bottom">
         <small>All Files( {{ ( fileObjectState | async ).objects.length }})</small>
       </div>
     </div>
     <div class="col-md-6">
       <div class="text-right">
-        <button class="btn btn-primary pull-right" (click)="onUploadObject()" *ngIf="!createNewBucket">Upload Object</button>
-        <button class="btn btn-primary pull-right" (click)="onDeleteObject()" *ngIf="!createNewBucket">Delete Object</button>
+        <button *ngIf="!showDetailsData" class="btn btn-primary pull-right" (click)="onUploadObject()" >Upload Object</button>
+        <button *ngIf="!showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteObject()" >Delete Object</button>
+        <button *ngIf="showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteBucket()" >Delete Bucket</button>
       </div>
     </div>
   </div>
   <br>
-  <app-bucket-files-list></app-bucket-files-list>
+  <app-bucket-files-list
+    *ngIf="!showDetailsData"></app-bucket-files-list>
+  <app-bucket-details
+   *ngIf="showDetailsData"></app-bucket-details>
 </div>
 

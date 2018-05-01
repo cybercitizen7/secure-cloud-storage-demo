@@ -35,7 +35,7 @@ export class FileObjectEffects {
     .ofType(FileObjectActions.UPLOAD_OBJECT)
     .switchMap((action: FileObjectActions.UploadObject) => {
       console.log('Sending POST request on Server');
-      return this.httpClient.post('https://challenge.3fs.si/storage/buckets' + action.bucketId + '/objects', action.payload);
+      return this.httpClient.post('https://challenge.3fs.si/storage/buckets/' + action.bucketId + '/objects/', action.payload);
     })
     .map(
       (file: FileObject ) => {
@@ -60,7 +60,7 @@ export class FileObjectEffects {
     );
     // .switchMap((action: FileObjectActions.DeleteObject) => {
     //   console.log('Sending DELETE request on Server for: ' + action.bucketId + ' and ' + action.objectId);
-    //   return this.httpClient.delete('https://challenge.3fs.si/storage/buckets' + action.bucketId + '/objects/' + action.objectId );
+    //   return this.httpClient.delete('https://challenge.3fs.si/storage/buckets/' + action.bucketId + '/objects/' + action.objectId );
     // })
 
 
