@@ -1,11 +1,14 @@
 <div class="col-md-12"  >
   <app-bucket-new *ngIf="showForm"></app-bucket-new>
-  <div class="text-right">
-    <button class="btn btn-primary pull-right" (click)="onNewBucket()" *ngIf="!showForm">Create new Bucket</button>
+  <div class="row h-100">
+    <div class="col-md-6 my-auto">
+      <small>All Buckets({{ (bucketState | async ).buckets.length }})</small>
+    </div>
+    <div class="col-md-2 offset-4">
+      <button class="btn btn-primary pull-right" (click)="onNewBucket()" *ngIf="!showForm">Create new Bucket</button>
+    </div>
   </div>
-  <div class="text-left">
-    <small>All Buckets({{ (bucketState | async ).buckets.length }})</small>
-  </div>
+
 </div>
 <hr>
 <div class="col-md-12">

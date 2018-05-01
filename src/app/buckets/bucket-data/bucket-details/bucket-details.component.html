@@ -4,7 +4,7 @@
       Bucket Name:
     </div>
     <div class="col-md-2">
-      My New Storage
+      {{ (bucketState | async ).buckets[bucketIndex].name }}
     </div>
   </div>
   <div class="row">
@@ -12,7 +12,7 @@
       Location:
     </div>
     <div class="col-md-2">
-      Kranj
+      {{ (bucketState | async ).buckets[bucketIndex].location.name }}
     </div>
   </div>
   <div class="row">
@@ -20,7 +20,7 @@
       Storage size:
     </div>
     <div class="col-md-2">
-      4.9 GB
+     {{ bucketStorageSize }} KB
     </div>
   </div>
 

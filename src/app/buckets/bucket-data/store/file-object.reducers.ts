@@ -16,12 +16,12 @@ const initialState: State = {
     new FileObject(
       'Test2',
       '2018-02-14',
-      1000
+      2000
     ),
     new FileObject(
       'Test3',
       '2018-02-14',
-      1000
+      3500
     ),
   ],
   objectSelectedIndex: -1

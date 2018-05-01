@@ -35,8 +35,6 @@ export class BucketDataComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.bucketId = params['id'];
-          // console.log('Route subscription: ' + this.bucketId);
-          // this.bucketState = this.store.select('bucket');
 
           // Check if there is a way to optimizie this navigation through Router instead, if there will be time
           if ( this.router.url === '/' + this.bucketId + '/details') {
@@ -46,8 +44,6 @@ export class BucketDataComponent implements OnInit {
           }
         }
       );
-
-
 
     // First dispatch Action to fetch files for the current page
     console.log('Fetching files for bucket: ' + this.bucketId);

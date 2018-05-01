@@ -6,20 +6,28 @@
     </ng-container>
 </div>
 <hr>
-<nav class="navbar navbar-default">
-    <div class="navbar-header">
-      <a routerLink="/{{bucketId}}/files"
-         routerLinkActive="active"
-         (click)="onNavigationSelected('files')"
-         class="navbar-brand"
-      >Files</a>
-      <a
-        routerLink="/{{bucketId}}/details"
-        routerLinkActive="active"
-        (click)="onNavigationSelected('details')"
-        class="navbar-brand"
-      >Details</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/{{bucketId}}/files"
+           (click)="onNavigationSelected('files')"
+           class="nav-link"
+        >Files</a>
+      </li>
+      <li class="nav-item">
+        <a
+          routerLink="/{{bucketId}}/details"
+          (click)="onNavigationSelected('details')"
+          class="nav-link"
+        >Details</a>
+      </li>
+    </ul>
+
+  </div>
+    <!--<div class="navbar-header">-->
+  <!---->
+    <!--</div>-->
 </nav>
 <div class="col-md-12">
   <div class="row">
