@@ -6,42 +6,51 @@
     </ng-container>
 </div>
 <hr>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a routerLink="/{{bucketId}}/files"
-           (click)="onNavigationSelected('files')"
-           class="nav-link"
-        >Files</a>
-      </li>
-      <li class="nav-item">
-        <a
-          routerLink="/{{bucketId}}/details"
-          (click)="onNavigationSelected('details')"
-          class="nav-link"
-        >Details</a>
-      </li>
-    </ul>
-
-  </div>
-    <!--<div class="navbar-header">-->
-  <!---->
-    <!--</div>-->
-</nav>
 <div class="col-md-12">
   <div class="row">
-    <div class="col-md-6">
-      <div *ngIf="!showDetailsData"  class="align-text-bottom">
-        <small>All Files( {{ ( fileObjectState | async ).objects.length }})</small>
+    <div class="col-xs-2">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a routerLink="/{{bucketId}}/files"
+                 (click)="onNavigationSelected('files')"
+                 class="nav-link"
+              >Files</a>
+            </li>
+            <li class="nav-item">
+              <a
+                routerLink="/{{bucketId}}/details"
+                (click)="onNavigationSelected('details')"
+                class="nav-link"
+              >Details</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-2 offset-lg-6">
+      <div class="row">
+        <div style="padding: 5px">
+          <button *ngIf="!showDetailsData" class="btn btn-outline-info pull-right" (click)="onUploadObject()" >Upload Object</button>
+        </div>
+        <div style="padding: 5px">
+          <button *ngIf="!showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteObject()" >Delete Object</button>
+        </div>
+        <div style="padding: 5px">
+          <button *ngIf="showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteBucket()" >Delete Bucket</button>
+        </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="text-right">
-        <button *ngIf="!showDetailsData" class="btn btn-primary pull-right" (click)="onUploadObject()" >Upload Object</button>
-        <button *ngIf="!showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteObject()" >Delete Object</button>
-        <button *ngIf="showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteBucket()" >Delete Bucket</button>
-      </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-12">
+  <div class="row h-100">
+    <div *ngIf="!showDetailsData" class="col-md-6 my-auto">
+      <small>All Files( {{ ( fileObjectState | async ).objects.length }})</small>
     </div>
   </div>
   <br>

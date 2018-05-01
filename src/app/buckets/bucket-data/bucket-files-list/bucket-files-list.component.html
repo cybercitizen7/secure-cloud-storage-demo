@@ -1,10 +1,11 @@
+<div class="col-md-9">
   <table class="table table-hover">
     <thead>
-      <tr>
-        <th>Name</th>
-        <th>Last modified</th>
-        <th>Size</th>
-      </tr>
+    <tr>
+      <th>Name</th>
+      <th>Last modified</th>
+      <th>Size</th>
+    </tr>
     </thead>
     <tbody>
     <tr *ngFor="let fileObjectEl of (fileObjectState | async).objects; let i = index" (click)="onSelectRow(i)" [class.active]="i == selectedRow">
@@ -14,5 +15,7 @@
     </tr>
     </tbody>
   </table>
+</div>
+
 
 
