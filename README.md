@@ -1,11 +1,12 @@
 # SecureCloudStorageDemo
 
 A simple Angular 5 WebApp using `ngRx` for State management and common Bootstrap 3 for UI.
-For HTTP I used `httpClient` and `HttpInterceptor` for authorization purposes.
+For HTTP requests I used `httpClient` and `HttpInterceptor` for authorization purposes.
 WebApp also uses `routing` for navigation.
 
 # Running the App with Docker
-Since I implemented support for Docker and Docker Compose, you can run it via `docker-compose up` command from CLI.
+Since I implemented support for Docker and Docker Compose, you can run it via `docker-compose up` command from CLI, 
+although it runs only 1 service (the web app itself).
 Then in your browser navigate to `http://localhost:3000/` to get access to the app.
 
 # Running the App with Ng
