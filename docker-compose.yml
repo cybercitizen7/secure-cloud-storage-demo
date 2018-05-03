@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+    webapp:
+        image: 'secure-cloud-storage'     # Image name
+        build: '.'                        # For development purposes -> we are always going to build the local image if it is not available
+        ports:
+            - 3000:80                     # Port forwarding

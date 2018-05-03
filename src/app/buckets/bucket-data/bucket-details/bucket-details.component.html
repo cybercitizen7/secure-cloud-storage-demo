@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-2">
+      Bucket Name:
+    </div>
+    <div class="col-md-2">
+      {{ (bucketState | async ).buckets[bucketIndex].name }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      Location:
+    </div>
+    <div class="col-md-2">
+      {{ (bucketState | async ).buckets[bucketIndex].location.name }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      Storage size:
+    </div>
+    <div class="col-md-2">
+      {{ bucketStorageSize | formatFileSize }}
+    </div>
+  </div>
+</div>
+
+

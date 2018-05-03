@@ -1,0 +1,63 @@
+<div class="col-md-12">
+    <ng-container *ngFor="let bucket of ( bucketState | async ).buckets">
+      <h1
+        *ngIf="bucket.id === bucketId" >
+        {{ bucket.name }}</h1>
+    </ng-container>
+</div>
+<hr>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-xs-2">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a routerLink="/{{bucketId}}/files"
+                 (click)="onNavigationSelected('files')"
+                 class="nav-link"
+              >Files</a>
+            </li>
+            <li class="nav-item">
+              <a
+                routerLink="/{{bucketId}}/details"
+                (click)="onNavigationSelected('details')"
+                class="nav-link"
+              >Details</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-2 offset-lg-6">
+      <div class="row">
+        <div style="padding: 5px">
+          <label *ngIf="!showDetailsData" class="btn btn-outline-info pull-right"  >
+            <input type="file" style="display: none;" (change)="startUpload($event.target.files)">Upload Object</label>
+        </div>
+        <div style="padding: 5px">
+          <button *ngIf="!showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteObject()" >Delete Object</button>
+        </div>
+        <div style="padding: 5px">
+          <button *ngIf="showDetailsData" class="btn btn-danger pull-right" (click)="onDeleteBucket()" >Delete Bucket</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-12">
+  <div class="row h-100">
+    <div *ngIf="!showDetailsData" class="col-md-6 my-auto">
+      <small>All Files( {{ ( fileObjectState | async ).objects.length }})</small>
+    </div>
+  </div>
+  <br>
+  <app-bucket-files-list
+    *ngIf="!showDetailsData"></app-bucket-files-list>
+  <app-bucket-details
+   *ngIf="showDetailsData"></app-bucket-details>
+</div>
+
