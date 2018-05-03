@@ -29,4 +29,10 @@ describe('BucketsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#onNewBucket() should toggle #showForm', () => {
+    expect(component.showForm).toBe(false, 'false at init');
+    component.onNewBucket();
+    expect(component.showForm).toBe(true, 'true after clicking button');
+  });
 });
